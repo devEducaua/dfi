@@ -59,7 +59,7 @@ void idle(char buff[256]) {
     bool quit = false;
 
     while (!quit) {
-        printf("dfi > ");
+        printf("> ");
         fgets(buff, 256, stdin);
 
         for (int i = 0; i < 256; i++) {
