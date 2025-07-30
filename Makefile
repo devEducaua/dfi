@@ -1,9 +1,18 @@
-CFLAGS = -Wextra -Wall
+CC		:= gcc
+TARGET 	:= build/dfi
+CFLAGS 	:= -Wextra -Wall
 
-all: dfi
+SRCS	:= $(wildcard src/*.c)
+OBJS 	:= $(SRCS:src/%.c=build/%.o)
 
-dfi: dfi.c
-	gcc $(CFLAGS) -o dfi dfi.c
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+build/%.o: src/%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm dfi
+	rm -rf build
