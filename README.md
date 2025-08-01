@@ -1,15 +1,21 @@
 # Deadfish Interpreter
 Simple deadfish interpreter in C
 
+## Instructions
+| cmd | desc                        |
+| --- | --------------------------- |
+| i   | increment accumulator in 1  |
+| d   | decrement accumulator in 1  |
+| s   | square the accumulator      |
+| o   | output the accumulator      |
+
 ## Usage
-simply run dfi to run the interactive shell.
-you can type the basic operation of deadfish "i d s o", and "q" to exit.
-
-or pass an file with deadfish code
-
+pass a file for the dfi.
 ```sh 
 $ ./dfi code.df 
 ```
+
+dfi also has a idle mode, but is not maintained
 
 ## Build
 After Download dfi.c and Makefile, run:
