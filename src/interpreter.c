@@ -2,19 +2,8 @@
 #include <stdbool.h>
 #include "interpreter.h"
 
-void interpreter(char buff[256], FILE* fptr, bool watchMode) {
+void interpreter(char buff[256], FILE* fptr) {
     int accumulator = 0;
-
-    if (watchMode == true) {
-        printf("WARNING:    watchMode enabled\n\n");
-        // while (watchMode) {
-        //     char *temp = buff;
-        //
-        //     if (temp != buff) {
-        //         run(accumulator, buff);
-        //     }
-        // }
-    }
 
     while (fgets(buff, 256, fptr)) {
         run(&accumulator, buff);
@@ -22,7 +11,7 @@ void interpreter(char buff[256], FILE* fptr, bool watchMode) {
 }
 
 void run(int *accumulator, char buff[]) {
-    for (int i = 0; buff[i] != '\0' && buff[i] != '\n'; i++) {
+    for (int i = 0; buff[i] != '\0'; i++) {
         switch(buff[i]) {
             case 'i':
                 *accumulator += 1;
@@ -38,8 +27,10 @@ void run(int *accumulator, char buff[]) {
                 break;
             case ' ':
                 break;
+            case '\n':
+                break;
             default:
-                printf("Unknown character: '%c' at '%d\n\n", buff[i], i);
+                printf("Unknown character: '%c' at %d\n\n", buff[i], i);
                 return;
                 break;
         }
