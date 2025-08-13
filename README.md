@@ -1,5 +1,5 @@
 # Deadfish Interpreter
-Simple deadfish interpreter in C
+Simple deadfish interpreter written in C
 
 ## Instructions
 | cmd | desc                        |
@@ -15,7 +15,7 @@ pass a file for the dfi.
 $ ./dfi code.df 
 ```
 
-dfi also has a idle mode, but is not maintained
+dfi also has a idle mode in dep/ folder, but is not maintained
 
 ## Build
 After Download dfi.c and Makefile, run:

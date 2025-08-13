@@ -1,6 +1,32 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
-#include "interpreter.h"
+#include <string.h>
+
+void interpreter(char buff[256], FILE* fptr);
+void run(int *accumulator, char buff[]);
+
+int main(int argc, char* argv[]) {
+    char buff[256];
+    FILE *fptr;
+
+    for (int i = 1; i < argc; i++) {
+        if (argv[i][0] != '-') {
+            fptr = fopen(argv[i], "r");
+        }
+    }
+    
+
+    if (fptr == NULL) {
+        printf("Error opening the file\n");
+        exit(1);
+    }
+
+    interpreter(buff, fptr);
+
+    fclose(fptr);
+    return 0;
+}
 
 void interpreter(char buff[256], FILE* fptr) {
     int accumulator = 0;

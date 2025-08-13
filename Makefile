@@ -1,15 +1,15 @@
-CC		:= gcc
-CFLAGS 	:= -Wextra -Wall
-TARGET 	:= build/dfi
-SRCS	:= $(wildcard src/*.c)
-OBJS	:= $(SRCS:src/%.c=build/%.o)
+CC		:= cc
+CFLAGS	:= -Wall -Wextra -pedantic -Werror
+TARGET	:= build/dfi
+SRC		:= dfi.c
+OBJ		:= $(patsubst %.c, build/%.o, $(SRC))
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
+$(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
-build/%.o: src/%.c
+build/%.o: %.c 
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
