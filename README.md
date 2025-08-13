@@ -15,7 +15,7 @@ pass a file for the dfi.
 $ ./dfi code.df 
 ```
 
-dfi also has a idle mode in dep/ folder, but is not maintained
+if you simply run without a file, it's enter in the idle mode.
 
 ## Build
 After Download dfi.c and Makefile, run:
